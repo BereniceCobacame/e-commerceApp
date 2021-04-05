@@ -60,11 +60,10 @@ class HorizontalList extends StatelessWidget {
 }
 
 class Category extends StatelessWidget {
-  final String imageLocation;
   final String imageCaption;
+  final String imageLocation;
 
   Category({this.imageLocation, this.imageCaption});
-
   @override
   Widget build(BuildContext context) {
     return Padding(

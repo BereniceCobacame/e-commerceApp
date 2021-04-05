@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 // mis imports
 import 'package:ecommerce_app/components/horizontal_listview.dart';
 import 'package:ecommerce_app/components/products.dart';
-// import 'style.dart';
+import 'style.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
+    theme: theme(),
     home: HomePage(),
   ));
 }
@@ -52,7 +53,8 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: Text(
               "Inicio",
-              style: TextStyle(fontSize: 30.0),
+              // style: TextStyle(fontSize: 30.0),
+              style: Theme.of(context).textTheme.headline1,
             ),
           ),
         ],
@@ -73,21 +75,22 @@ class _HomePageState extends State<HomePage> {
       Center(
         child: Text(
           "News",
-          style: TextStyle(fontSize: 30.0),
+          style: Theme.of(context).textTheme.headline1,
         ),
       ),
       // 4. CARRITO:
       Center(
         child: Text(
           "Carrito",
-          style: TextStyle(fontSize: 30.0),
+          style: Theme.of(context).textTheme.headline1,
+          // style: TextStyle(fontSize: 30.0),
         ),
       ),
       // 6. CUENTA:
       Center(
         child: Text(
           "Cuenta",
-          style: TextStyle(fontSize: 30.0),
+          style: Theme.of(context).textTheme.headline1,
         ),
       ),
     ];

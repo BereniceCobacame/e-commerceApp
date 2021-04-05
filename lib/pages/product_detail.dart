@@ -1,4 +1,11 @@
+// import 'package:check_radio_group/radio/radio_group.dart';
 import 'package:flutter/material.dart';
+
+// radio button imports
+// import 'package:check_radio_group/check/check_group.dart';
+// import 'package:check_radio_group/model/group_style.dart';
+// import 'package:check_radio_group/model/item_group.dart';
+// import 'package:check_radio_group/radio/radio_group.dart';
 
 class ProductDetails extends StatefulWidget {
   final productDetailName;
@@ -6,17 +13,33 @@ class ProductDetails extends StatefulWidget {
   final productDetailOldprice;
   final productDetailPicture;
 
-  ProductDetails(
-      {this.productDetailName,
-      this.productDetailNewprice,
-      this.productDetailOldprice,
-      this.productDetailPicture});
+  ProductDetails({
+    this.productDetailName,
+    this.productDetailNewprice,
+    this.productDetailOldprice,
+    this.productDetailPicture,
+  });
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  // final List<GroupItem> radioItems = [
+  //   GroupItem(title: 'S'),
+  //   GroupItem(title: 'M'),
+  //   GroupItem(title: 'L'),
+  // ];
+
+  // GroupItem _selected;
+
+  // void initState() {
+  //   setState(() {
+  //     _selected = radioItems[0];
+  //   });
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,63 +111,93 @@ class _ProductDetailsState extends State<ProductDetails> {
                   fontSize: 20.0),
             ),
           ),
+
+          // Container(
+          //   child: RadioGroup(
+          //     items: radioItems,
+          //     selected: _selected,
+          //     style: GroupStyle(
+          //         // activeColor: Colors.red,
+          //         // checkPosition: ListTileControlAffinity.trailing,
+          //         // titleAlign: TextAlign.end,
+          //         // titleStyle: TextStyle(fontSize: 12),
+          //         ),
+          //     onSelected: (item) {
+          //       // print(item.title);
+          //     },
+          //   ),
+          // ),
 //  ===== CHILDREN 3 DEL LISTVIEW: Botones =====
           Row(
             children: [
+              RadioGroup(),
 //  ========= Primer boton: Tamaño =========
-              Expanded(
-                  child: MaterialButton(
-                onPressed: () {},
-                color: Colors.white,
-                textColor: Colors.grey,
-                elevation: 0.2,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text("Tamaño"),
-                    ),
-                    Expanded(
-                      child: Icon(Icons.arrow_drop_down),
-                    ),
-                  ],
-                ),
-              )),
+              // RadioGroup(
+              //   items: radioItems,
+              //   selected: _selected,
+              //   style: GroupStyle(
+              //       // activeColor: Colors.red,
+              //       // checkPosition: ListTileControlAffinity.trailing,
+              //       // titleAlign: TextAlign.end,
+              //       // titleStyle: TextStyle(fontSize: 12),
+              //       ),
+              //   onSelected: (item) {
+              //     // print(item.title);
+              //   },
+              // ),
+              // Expanded(
+              //     child: MaterialButton(
+              //   onPressed: () {},
+              //   color: Colors.white,
+              //   textColor: Colors.grey,
+              //   elevation: 0.2,
+              //   child: Row(
+              //     children: [
+              //       Expanded(
+              //         child: Text("Tamaño"),
+              //       ),
+              //       Expanded(
+              //         child: Icon(Icons.arrow_drop_down),
+              //       ),
+              //     ],
+              //   ),
+              // )),
 //  ========= Segundo boton: Color =========
-              Expanded(
-                  child: MaterialButton(
-                onPressed: () {},
-                color: Colors.white,
-                textColor: Colors.grey,
-                elevation: 0.2,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text("Color"),
-                    ),
-                    Expanded(
-                      child: Icon(Icons.arrow_drop_down),
-                    ),
-                  ],
-                ),
-              )),
+              // Expanded(
+              //     child: MaterialButton(
+              //   onPressed: () {},
+              //   color: Colors.white,
+              //   textColor: Colors.grey,
+              //   elevation: 0.2,
+              //   child: Row(
+              //     children: [
+              //       Expanded(
+              //         child: Text("Color"),
+              //       ),
+              //       Expanded(
+              //         child: Icon(Icons.arrow_drop_down),
+              //       ),
+              //     ],
+              //   ),
+              // )),
 //  ========= Tercer boton: Cantidad =========
-              Expanded(
-                  child: MaterialButton(
-                onPressed: () {},
-                color: Colors.white,
-                textColor: Colors.grey,
-                elevation: 0.2,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text("Cantidad"),
-                    ),
-                    Expanded(
-                      child: Icon(Icons.arrow_drop_down),
-                    ),
-                  ],
-                ),
-              )),
+              // Expanded(
+              //     child: MaterialButton(
+              //   onPressed: () {},
+              //   color: Colors.white,
+              //   textColor: Colors.grey,
+              //   elevation: 0.2,
+              //   child: Row(
+              //     children: [
+              //       Expanded(
+              //         child: Text("Cantidad"),
+              //       ),
+              //       Expanded(
+              //         child: Icon(Icons.arrow_drop_down),
+              //       ),
+              //     ],
+              //   ),
+              // )),
             ],
           ),
         ],
@@ -189,6 +242,73 @@ class _ProductDetailsState extends State<ProductDetails> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class RadioGroup extends StatefulWidget {
+  @override
+  RadioGroupWidget createState() => RadioGroupWidget();
+}
+
+class RadioGroupWidget extends State {
+  // String radioButtonItem = 'S';
+  int id = 1;
+  // List<String> _group = ['S', 'M', 'L'];
+
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Row(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Radio(
+              value: 1,
+              groupValue: id,
+              onChanged: (val) {
+                setState(() {
+                  // radioButtonItem = 'S';
+                  id = 1;
+                });
+              },
+            ),
+            Text(
+              'S',
+              style: new TextStyle(fontSize: 17.0),
+            ),
+            Radio(
+              value: 2,
+              groupValue: id,
+              onChanged: (val) {
+                setState(() {
+                  // radioButtonItem = 'M';
+                  id = 2;
+                });
+              },
+            ),
+            Text(
+              'M',
+              style: new TextStyle(
+                fontSize: 17.0,
+              ),
+            ),
+            Radio(
+              value: 3,
+              groupValue: id,
+              onChanged: (val) {
+                setState(() {
+                  // radioButtonItem = 'L';
+                  id = 3;
+                });
+              },
+            ),
+            Text(
+              'L',
+              style: new TextStyle(fontSize: 17.0),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

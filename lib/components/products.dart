@@ -92,12 +92,15 @@ class SingleProduct extends StatelessWidget {
                     child: ListTile(
                       leading: Text(
                         productName,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       title: Text(
                         "\$$productPrice",
-                        style: TextStyle(
-                            color: Colors.red, fontWeight: FontWeight.w800),
+                        style: Theme.of(context).textTheme.headline2,
+                        // style: TextStyle(
+                        //     color: Colors.red, fontWeight: FontWeight.w800),
                       ),
                       subtitle: Text(
                         "\$$productOldprice",
